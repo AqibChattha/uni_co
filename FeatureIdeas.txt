@@ -1,0 +1,26 @@
+1- BodyLayout
+2- NavBar
+3- SideMenu (optional)
+4- Scroll panel feed
+5- University personal chatroom
+6- Global chatroom (optional- it will display university's name abriviation with username on the post)
+7- Posting Function
+8- filtering functions (it will also show the number of posts)
+9- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

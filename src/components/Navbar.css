@@ -1,53 +1,288 @@
-a{
-    text-decoration: none;
-}
-h2{
-    margin: auto;
-    margin-top: 0.7rem;
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-li{
-    list-style: none;
+body {
+    background-color: #ECEEEA;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
 }
 
-.main-div{
+/* ----------------------Navbar styles---------------------- */
+header {
     width: 100%;
-    height: 4rem;
-    display: grid;
-    grid-template-columns: 1fr 3fr 4fr 4fr 4fr;
-    grid-template-rows: 4rem;
-    background-color: grey;
-    position: sticky;
-    top: 0;
-}
-
-.logo{
-    display: grid;
-    grid-column: 2/3;
-    justify-content: start;
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
-}
-.menu-link{
-    grid-column: 3/5;
-}
-
-.menu-link ul{
-    height: 3rem;
+    height: 46px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin: auto;
-    margin-top: 1rem;
+    position: fixed;
+    z-index: 99;
+    box-shadow: 0 0 7px #000;
+    background: #fff;
 }
 
-.menu-link ul li{
-    font-size: 1.2rem;
+#nav-chk1 {
+    display: none;
 }
 
-.menu-link ul li a{
-    text-transform: capitalize;
-    color: white;
-    transition: 0.5s;
+header i {
+    /* color: #fff; */
+    cursor: pointer;
+}
+
+header .nav-logo {
+    flex: 1;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+header .nav-logo-text {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 4px;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+header .nav-logo-text a {
+    text-decoration: none;
+    color: #1703f5;
+    font-size: 16px;
+
+}
+
+header .nav-logo-text a span {
+    font-size: 22px;
+}
+
+header a #nav-Logo-img {
+    width: 28px;
+    height: 36px;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+header .nav-search-box {
+    flex: 1;
+    position: relative;
+    margin-top: 4px;
+}
+
+header .nav-search-box input {
+    width: 100%;
+    height: 26px;
+    border: none;
+    outline: none;
+    background: #f2f2f2;
+    border-radius: 30px;
+    color: gray;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 40px;
+
+}
+
+header .nav-search-box button {
+    cursor: pointer;
+    width: 26px;
+    height: 24px;
+    border-radius: 30px;
+    border: none;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    transform: scale(0.9);
+    background: #4e4e4e;
+    color: #fff;
+}
+
+header ul {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+}
+
+header ul li {
+    list-style: none;
+    font-family: monospace;
+    padding: 5px 0px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: #181818;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+header ul li i {
+    color: #4e4e4e;
+}
+
+header ul li:hover {
+    border-bottom: 2px solid #4e4e4e;
+    padding: 3px 0px;
+    cursor: pointer;
+}
+
+header .nav-menu {
+    font-size: 2.5em;
+    display: none;
+    height: 70px;
+    caret-color: rgba(0,0,0,0);
+}
+
+header .nav-menu i {
+    color: #818181;
+}
+
+header ul button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    padding: 0.5em 0.5em;
+    border-radius: 12px;
+    box-shadow: 1px 2px 0px 0px;
+}
+
+header ul button {
+    color: var(--color);
+    transition: 0.25s;
+}
+
+header ul button:hover,
+header ul button:focus {
+    border-color: var(--hover);
+    color: #fff;
+}
+
+#btn-signin:hover,
+#btn-signin:focus {
+    box-shadow: inset 0 0 0 1.7em var(--hover);
+}
+
+#btn-signin {
+    --color: #a972cb;
+    --hover: #cb72aa;
+}
+
+#btn-signup:hover,
+#btn-signup:focus {
+    box-shadow: inset 0 0 0 1.7em var(--hover);
+}
+
+#btn-signup {
+    --color: #cb72aa;
+    --hover: #a972cb;
+}
+
+
+
+/* ----------------------Mediia queries for responsiveness---------------------- */
+@media(max-width:1620px) {
+    header ul{
+        flex: 2 1;
+    }
+}   
+@media(max-width:1020px) {
+    .nav-search-box button {
+        position: absolute;
+    }
+
+    header ul {
+        position: fixed;
+        top: 46px;
+        right: -100%;
+        background: rgba(0, 0, 0, 0.5);
+        height: calc(100vh - 46px);
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+    }
+
+    header .nav-menu {
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+
+    #nav-chk1:checked~ul {
+        right: 0;
+
+    }
+
+    header ul li a {
+        color: #fff;
+    }
+
+
+    header ul li i {
+        color: #fff;
+    }
+
+    #btn-signin {
+        --color: #fff;
+        --hover: #4e4e4e;
+    }
+
+    #btn-signup {
+      --color: #fff;
+      --hover: #4e4e4e;
+    }
+
+    header ul button {
+        background: #686868;
+        border: none;
+        font: inherit;
+        line-height: 1;
+        padding: 0.5em 30%;
+        border-radius: 14px;
+        box-shadow: none;
+    }
+    
+    header .nav-menu .fa{
+        font-size: 28px;
+        margin-bottom: 13px;
+    }
+
+}
+
+@media(max-width:768px) {
+    header .nav-logo-text {
+        font-size: 16px;
+    }
+
+    header .nav-logo {
+        margin-left: 7px;
+    }
+
+    header #nav-Logo-img {
+        width: 15px;
+        height: 22px;
+    }
+
+    header .nav-menu {
+        width: 60px;
+    }
+}
+
+@media(max-width:425px) {
+    header .nav-menu {
+        width: 40px;
+    }
+
+    header ul {
+        width: 100%;
+    }
 }
